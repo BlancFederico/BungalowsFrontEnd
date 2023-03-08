@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Eliminar reserva</h1>
+<div mat-dialog-content>
+¿Desea eliminar la reserva de "{{dataReserva.nombreCompleto}}""
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">No, volver</button>
+  <button mat-raised-button color="primary"
+  (click)="confirmar_Eliminar()"
+  cdkFocusInitial
+  >Si, eliminar
+</button>
+
+</div>

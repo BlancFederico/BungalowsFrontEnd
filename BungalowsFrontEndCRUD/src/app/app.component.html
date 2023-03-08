@@ -1,0 +1,68 @@
+<div style="width: 70%; margin:40px auto">
+
+  <h1>Lista de Reservas</h1>
+  <button mat-raised-button color="primary" (click)="dialogoNuevaReserva()">Nueva Reserva</button>
+  <br>
+  <br>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="NombreCompleto">
+        <th mat-header-cell *matHeaderCellDef> Nombre Completo </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombreCompleto}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="TipoReserva">
+        <th mat-header-cell *matHeaderCellDef> Tipo de Reserva </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombreTipoReserva}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="Costo">
+        <th mat-header-cell *matHeaderCellDef> Costo </th>
+        <td mat-cell *matCellDef="let element"> {{element.costo}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="FechaInicio">
+        <th mat-header-cell *matHeaderCellDef> Fecha de Inicio </th>
+        <td mat-cell *matCellDef="let element"> {{element.fechaInicio}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="FechaSalida">
+        <th mat-header-cell *matHeaderCellDef> Fecha de Salida </th>
+        <td mat-cell *matCellDef="let element"> {{element.fechaSalida}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Acciones">
+        <th mat-header-cell *matHeaderCellDef style="width: 100px;">  </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="dialogoEditarReserva(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="dialogoEliminarReserva(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+  
+
+</div>
+

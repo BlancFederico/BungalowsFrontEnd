@@ -1,0 +1,3 @@
+[submodule "BungalowsFrontEndCRUD"]
+	path = BungalowsFrontEndCRUD
+	url = https://github.com/BlancFederico/BungalowsFrontEnd.git
